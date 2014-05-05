@@ -1,0 +1,10 @@
+INSERT OVERWRITE TABLE pay_pv PARTITION(dt='20131027') select m, uid, cur_url, area, day_time from pv where dt = '20131027' and m != '-'  and  m not like '\%%'  and cur_url not like 'http://www.letv.com/ptv/vplay%' order by m, day_time;
+
+insert overwrite --> new table
+like , not like, order by , partition
+
+#创建hive表
+create table IF NOT EXISTS subscribers (userid string) COMMENT 'all the subscribers id' ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+#正则
+regexp_extract(pt, '^[0-9]+$', 0) <> ""
