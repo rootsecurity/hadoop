@@ -1,0 +1,23 @@
+#hadoop version
+hadoop version
+
+
+hadoop fs -ls 
+hadoop fs -lsr # r for recursive
+
+
+hadoop fs -ls -R 
+
+#清空回收站
+hadoop fs -rmr .Trash
+
+#杀死任务,终止客户端进程并不能杀死任务
+/usr/local/hadoop/bin/hadoop job  -kill job_201311131436_45078
+
+#设置环境变量, hadoop家目录，hive家目录,设置执行路径
+HADOOP_HOME=/usr/local/hadoop
+HIVE_HOME=/usr/local/hive
+
+PATH=$HADOOP_HOME/bin:$HIVE_HOME/bin:$PATH
+
+hadoop job -list
